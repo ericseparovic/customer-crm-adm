@@ -1,52 +1,73 @@
 import { useLoaderData } from 'react-router-dom';
+import Client from '../components/Client';
 
 export function loader() {
 	const clients = [
 		{
 			id: 1,
-			nombre: 'Juan',
-			telefono: 102013313,
-			email: 'juan@juan.com',
-			empresa: 'Codigo Con Juan',
+			name: 'Juan',
+			phone: 102013313,
+			email: 'juan@accesa.com',
+			company: 'Accesa',
 		},
 		{
 			id: 2,
-			nombre: 'Karen',
-			telefono: 138198313,
-			email: 'karen@juan.com',
-			empresa: 'Codigo Con Juan',
+			name: 'Karen',
+			phone: 138198313,
+			email: 'karen@nike.com',
+			company: 'Nike',
 		},
 		{
 			id: 3,
-			nombre: 'Josue',
-			telefono: 31983913,
-			email: 'josue@juan.com',
-			empresa: 'Codigo Con Juan',
+			name: 'Josue',
+			phone: 31983913,
+			email: 'josue@mistral.com',
+			company: 'Mistral',
 		},
 		{
 			id: 4,
-			nombre: 'Miguel',
-			telefono: 319381983,
-			email: 'miguel@juan.com',
-			empresa: 'Codigo Con Juan',
+			name: 'Miguel',
+			phone: 319381983,
+			email: 'miguel@tata.com',
+			company: 'TaTa',
 		},
 		{
 			id: 5,
-			nombre: 'Pedro',
-			telefono: 1398198938,
-			email: 'pedro@juan.com',
-			empresa: 'Codigo Con Juan',
+			name: 'Pedro',
+			phone: 1398198938,
+			email: 'pedro@adidas.com',
+			company: 'Adidas',
 		},
 	];
 	return clients;
 }
 
 function Index() {
-	const data = useLoaderData();
+	const clients = useLoaderData();
 	return (
 		<>
 			<h1 className='font-black text-4xl text-sky-800'>Clients</h1>
 			<p className='mt-3'>Manage your Clients</p>
+
+			{clients.length ? (
+				<table className='w-full bg-while shadow mt-5 table-auto'>
+					<thead className='bg-sky-800 text-white'>
+						<tr>
+							<th className='p-2'>Client</th>
+							<th className='p-2'>Contact</th>
+							<th className='p-2'>Email</th>
+							<th className='p-2'>Company</th>
+						</tr>
+					</thead>
+					<tbody>
+						{clients.map((client) => (
+							<Client client={client} />
+						))}
+					</tbody>
+				</table>
+			) : (
+				<p className='text-center mt-10'>No Clients</p>
+			)}
 		</>
 	);
 }

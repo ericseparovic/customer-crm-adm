@@ -11,11 +11,10 @@ const router = createBrowserRouter([
 		path: '/',
 		element: <Layout />,
 		children: [
-			{ index: true, element: <Index /> },
+			{ index: true, element: <Index />, loader: clientsLoader },
 			{
 				path: '/clients/new',
 				element: <NewClient />,
-				loader: clientsLoader,
 			},
 		],
 	},
