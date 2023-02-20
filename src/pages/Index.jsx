@@ -61,7 +61,7 @@ function Index() {
 					</thead>
 					<tbody>
 						{clients.map((client) => (
-							<Client client={client} />
+							<Client client={client} key={client.id} />
 						))}
 					</tbody>
 				</table>
