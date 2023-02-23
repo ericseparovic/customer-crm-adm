@@ -4,7 +4,7 @@ function Layout() {
 	const location = useLocation();
 
 	return (
-		<div className='md:flex md:min-h-screen'>
+		<div className='md:flex'>
 			<aside className='md:1/4 bg-sky-900 px-5 py-10'>
 				<h2 className='text-center text-white text-4xl font-black'>
 					CRM - Client
@@ -28,7 +28,7 @@ function Layout() {
 					</Link>
 				</nav>
 			</aside>
-			<main className='md:w-3/4 p-10 md:h-screen overflow-scroll'>
+			<main className='md:w-3/4 p-10 md:h-screen'>
 				<Outlet />
 			</main>
 		</div>

@@ -1,12 +1,12 @@
-import { useNavigate } from 'react-router-dom';
-import Form from '../components/Form';
+import { useNavigate, Form } from 'react-router-dom';
+import FormCliente from '../components/FormClient';
+
+export function action({ request }) {
+	console.log('submit...');
+}
 
 function NewClient() {
 	const navigate = useNavigate();
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-	};
 
 	return (
 		<>
@@ -23,7 +23,9 @@ function NewClient() {
 				</button>
 			</div>
 			<div className='bg-white shadow rounded-md md:w-3/4 mx-auto px-10 py-10 max-w-xl'>
-				<Form handleSubmit={handleSubmit} />
+				<Form method='post'>
+					<FormCliente />
+				</Form>
 			</div>
 		</>
 	);

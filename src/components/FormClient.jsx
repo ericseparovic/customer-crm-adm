@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-function Form({ handleSubmit }) {
+function FormClient({ handleSubmit }) {
 	return (
 		<>
 			<div className='mb-4'>
@@ -71,8 +71,8 @@ function Form({ handleSubmit }) {
 	);
 }
 
-Form.propTypes = {
+FormClient.propTypes = {
 	handleSubmit: PropTypes.func,
 };
 
-export default Form;
+export default FormClient;
