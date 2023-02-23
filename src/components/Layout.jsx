@@ -5,7 +5,7 @@ function Layout() {
 
 	return (
 		<div className='md:flex'>
-			<aside className='md:1/4 bg-sky-900 px-5 py-10'>
+			<aside className='bg-sky-900 px-5 py-10 fixed top-0 bottom-0'>
 				<h2 className='text-center text-white text-4xl font-black'>
 					CRM - Client
 				</h2>
@@ -28,7 +28,7 @@ function Layout() {
 					</Link>
 				</nav>
 			</aside>
-			<main className='md:w-3/4 p-10 md:h-screen'>
+			<main className='p-10 md:h-screen mx-auto w-full'>
 				<Outlet />
 			</main>
 		</div>
