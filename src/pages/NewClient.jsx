@@ -1,11 +1,27 @@
-import { useNavigate, Form } from 'react-router-dom';
+import { useNavigate, Form, useActionData } from 'react-router-dom';
 import FormCliente from '../components/FormClient';
+import Error from '../components/Error';
 
-export function action({ request }) {
-	console.log('submit...');
+export async function action({ request }) {
+	const formData = await request.formData();
+
+	const data = Object.fromEntries(formData);
+
+	// validation
+	const errors = [];
+	if (Object.values(data).includes('')) {
+		errors.push('All fields are required');
+	}
+
+	// Return error
+	if (Object.keys(errors).length) {
+		return errors;
+	}
+	return data;
 }
 
 function NewClient() {
+	const errors = useActionData();
 	const navigate = useNavigate();
 
 	return (
@@ -23,6 +39,8 @@ function NewClient() {
 				</button>
 			</div>
 			<div className='bg-white shadow rounded-md md:w-3/4 mx-auto px-10 py-10 max-w-xl'>
+				{errors?.length &&
+					errors.map((error, i) => <Error key={i}>{error}</Error>)}
 				<Form method='post'>
 					<FormCliente />
 				</Form>
