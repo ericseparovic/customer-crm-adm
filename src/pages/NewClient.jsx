@@ -1,6 +1,7 @@
 import { useNavigate, Form, useActionData } from 'react-router-dom';
 import FormCliente from '../components/FormClient';
 import Error from '../components/Error';
+import IconReturn from '../assets/return.png';
 
 export async function action({ request }) {
 	const formData = await request.formData();
@@ -33,9 +34,9 @@ function NewClient() {
 
 			<div className='flex justify-end'>
 				<button
-					className='bg-sky-800 px-3 py-1 text-white rounded font-bold uppercase'
+					className='px-3 py-1 text-white rounded font-bold uppercase shadow bg-white'
 					onClick={() => navigate('/')}>
-					Return
+					<img className='w-6' src={IconReturn} alt='icon-return' />
 				</button>
 			</div>
 			<div className='bg-white shadow rounded-md md:w-3/4 mx-auto px-10 py-10 max-w-xl'>
