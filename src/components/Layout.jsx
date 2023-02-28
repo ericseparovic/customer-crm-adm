@@ -1,4 +1,6 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
+import IconUsers from '../assets/IconUsers';
+import IconUserAdd from '../assets/IconUserAdd';
 
 function Layout() {
 	const location = useLocation();
@@ -15,7 +17,14 @@ function Layout() {
 							location.pathname === '/' ? 'text-sky-500' : 'text-white'
 						} text-2xl block mt-2 hover:text-sky-500`}
 						to='/'>
-						Clients
+						<div
+							className='flex itemce
+						'>
+							<IconUsers
+								color={`${location.pathname === '/' ? '#0D85BD' : '#fff'}`}
+								to='/'></IconUsers>
+							Clients
+						</div>
 					</Link>
 					<Link
 						className={`${
@@ -24,11 +33,18 @@ function Layout() {
 								: 'text-white'
 						} text-2xl block mt-2 hover:text-sky-500`}
 						to='/clients/new'>
-						New clients
+						<div className='flex items-center'>
+							<IconUserAdd
+								color={`${
+									location.pathname === '/clients/new' ? '#0D85BD' : '#fff'
+								}`}
+								to='/clients/new'></IconUserAdd>
+							New Client
+						</div>
 					</Link>
 				</nav>
 			</aside>
-			<main className='p-10 md:h-screen mx-auto w-full'>
+			<main className='p-10 md:h-screen mx-auto max-w-xl w-full'>
 				<Outlet />
 			</main>
 		</div>
