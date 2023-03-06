@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 function FormClient({ handleSubmit }) {
 	return (
 		<>
-			<div className='mb-4'>
+			<div>
 				<label className='text-xl block m-1' htmlFor='name'>
 					Name
 				</label>

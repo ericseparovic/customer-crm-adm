@@ -8,20 +8,20 @@ function Layout() {
 	return (
 		<div className='md:flex'>
 			<aside className='bg-sky-900 px-5 py-10 fixed top-0 bottom-0'>
-				<h2 className='text-center text-white text-4xl font-black'>
-					CRM - Client
-				</h2>
+				<h2 className='text-center text-white text-4xl font-black'>CRM </h2>
 				<nav className='mt-16'>
 					<Link
 						className={`${
 							location.pathname === '/' ? 'text-sky-500' : 'text-white'
-						} text-2xl block mt-2 hover:text-sky-500`}
+						} text-2xl block mt-2`}
 						to='/'>
 						<div
 							className='flex itemce
 						'>
 							<IconUsers
-								color={`${location.pathname === '/' ? '#0D85BD' : '#fff'}`}
+								color={`${
+									location.pathname === '/' ? 'fill-sky-500' : 'fill-white'
+								}`}
 								to='/'></IconUsers>
 							Clients
 						</div>
@@ -31,12 +31,14 @@ function Layout() {
 							location.pathname === '/clients/new'
 								? 'text-sky-500'
 								: 'text-white'
-						} text-2xl block mt-2 hover:text-sky-500`}
+						} text-2xl block mt-2`}
 						to='/clients/new'>
 						<div className='flex items-center'>
 							<IconUserAdd
 								color={`${
-									location.pathname === '/clients/new' ? '#0D85BD' : '#fff'
+									location.pathname === '/clients/new'
+										? 'stroke-sky-500'
+										: 'stroke-white'
 								}`}
 								to='/clients/new'></IconUserAdd>
 							New Client

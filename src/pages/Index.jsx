@@ -47,7 +47,7 @@ function Index() {
 	return (
 		<>
 			<h1 className='font-black text-4xl text-sky-800 text-center'>Clients</h1>
-			<p className='mt-3 text-xl text-center mb-16'>Manage your Clients</p>
+			<p className='mt-3 text-2xl text-center mb-16'>Manage your Clients</p>
 
 			{clients.length ? (
 				<table className='w-full bg-while shadow mt-5 table-auto'>

@@ -1,7 +1,7 @@
 function IconUsers({ color }) {
 	return (
 		<svg
-			fill={color}
+			className={color}
 			width='30px'
 			height='30px'
 			viewBox='0 0 36 36'

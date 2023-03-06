@@ -34,12 +34,12 @@ function NewClient() {
 
 			<div className='flex justify-end'>
 				<button
-					className='px-3 py-1 text-white rounded font-bold uppercase shadow bg-white'
+					className='px-3 py-2 text-white rounded font-bold uppercase shadow bg-white mb-2'
 					onClick={() => navigate('/')}>
 					<img className='w-6' src={IconReturn} alt='icon-return' />
 				</button>
 			</div>
-			<div className='bg-white shadow rounded-md md:w-3/4 mx-auto px-10 py-10 max-w-xl'>
+			<div className='bg-white shadow rounded-md  mx-auto px-10 py-10'>
 				{errors?.length &&
 					errors.map((error, i) => <Error key={i}>{error}</Error>)}
 				<Form method='post'>
