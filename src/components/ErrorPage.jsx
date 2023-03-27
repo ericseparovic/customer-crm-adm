@@ -5,7 +5,7 @@ function ErrorPage() {
 	return (
 		<div className='space-y-8'>
 			<h1 className='text-center font-bold text-sky-800'></h1>
-			<p className='text-center'>{error.message}</p>
+			<p className='text-center'>{error.statusText || error.message}</p>
 		</div>
 	);
 }

@@ -1,5 +1,4 @@
 function IconUserAdd({ color }) {
-	console.log(color);
 	return (
 		<svg
 			width='30px'

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-function FormClient({ handleSubmit }) {
+function FormClient({ client }) {
 	return (
 		<>
 			<div>
@@ -13,6 +13,7 @@ function FormClient({ handleSubmit }) {
 					name='name'
 					id='name'
 					placeholder='Add name'
+					defaultValue={client?.name}
 				/>
 			</div>
 			<div className='mb-4'>
@@ -25,6 +26,7 @@ function FormClient({ handleSubmit }) {
 					name='company'
 					id='company'
 					placeholder='Add company'
+					defaultValue={client?.company}
 				/>
 			</div>
 			<div className='mb-4'>
@@ -37,6 +39,7 @@ function FormClient({ handleSubmit }) {
 					name='email'
 					id='email'
 					placeholder='Add email'
+					defaultValue={client?.email}
 				/>
 			</div>
 			<div className='mb-4'>
@@ -49,6 +52,7 @@ function FormClient({ handleSubmit }) {
 					name='phone'
 					id='phone'
 					placeholder='Add phone'
+					defaultValue={client?.phone}
 				/>
 			</div>
 			<div className='mb-4'>
@@ -60,12 +64,13 @@ function FormClient({ handleSubmit }) {
 					type='text'
 					name='note'
 					id='note'
-					placeholder='Add note'></textarea>
+					placeholder='Add note'
+					defaultValue={client?.note}></textarea>
 			</div>
 			<input
 				type='submit'
 				className='mt-5 w-full bg-sky-800 p-3 uppercase font-bold text-white text-lg cursor-pointer'
-				value='Register client'
+				value={client ? 'Save' : 'Register'}
 			/>
 		</>
 	);

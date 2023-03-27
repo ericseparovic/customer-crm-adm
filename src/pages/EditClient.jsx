@@ -1,10 +1,29 @@
-import { useNavigate, Form, useActionData, redirect } from 'react-router-dom';
+import { getClient } from '../data/clients';
 import FormClient from '../components/FormClient';
+import {
+	useNavigate,
+	Form,
+	redirect,
+	useLoaderData,
+	useActionData,
+} from 'react-router-dom';
 import Error from '../components/Error';
 import IconReturn from '../assets/return.png';
-import { addClient } from '../data/clients';
+import { updateClient } from '../data/clients';
 
-export async function action({ request }) {
+export async function loader({ params }) {
+	const client = await getClient(params.clientId);
+	if (Object.values(client).length === 0) {
+		throw new Response('', {
+			status: 404,
+			statusText: 'Not Result',
+		});
+	}
+
+	return client;
+}
+
+export async function action({ request, params }) {
 	const formData = await request.formData();
 
 	const data = Object.fromEntries(formData);
@@ -20,21 +39,22 @@ export async function action({ request }) {
 		return errors;
 	}
 
-	await addClient(data);
+	await updateClient(params.clientId, data);
 
 	return redirect('/');
 }
 
-function NewClient() {
+function EditClient() {
 	const errors = useActionData();
 	const navigate = useNavigate();
+	const client = useLoaderData();
 
 	return (
 		<>
 			<h1 className='font-black text-4xl text-sky-800 text-center'>
-				New Client
+				Edit Client
 			</h1>
-			<p className='mt-3 text-center text-2xl mb-16'>Add new clients</p>
+			<p className='mt-3 text-center text-2xl mb-16'>Modify client</p>
 
 			<div className='flex justify-end'>
 				<button
@@ -47,11 +67,11 @@ function NewClient() {
 				{errors?.length &&
 					errors.map((error, i) => <Error key={i}>{error}</Error>)}
 				<Form method='post'>
-					<FormClient />
+					<FormClient client={client} />
 				</Form>
 			</div>
 		</>
 	);
 }
 
-export default NewClient;
+export default EditClient;
