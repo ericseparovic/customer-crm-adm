@@ -1,5 +1,11 @@
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Form, redirect } from 'react-router-dom';
+import { deleteClient } from '../data/clients';
+
+export async function action({ params }) {
+	deleteClient(params.clientId);
+	return redirect('/');
+}
 
 function Client({ client }) {
 	const navigate = useNavigate();
@@ -17,11 +23,20 @@ function Client({ client }) {
 					onClick={() => navigate(`/clients/${id}/edit`)}>
 					Edit
 				</button>
-				<button
-					className='text-red-800 uppercase font-bold text-xs'
-					type='button'>
-					Delete
-				</button>
+				<Form
+					method='POST'
+					action={`/clients/${id}/delete`}
+					onSubmit={(e) => {
+						if (!confirm('Do you want to delete?')) {
+							e.preventDefault();
+						}
+					}}>
+					<button
+						className='text-red-800 uppercase font-bold text-xs'
+						type='submit'>
+						Delete
+					</button>
+				</Form>
 			</td>
 		</tr>
 	);

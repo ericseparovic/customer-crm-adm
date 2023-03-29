@@ -1,20 +1,12 @@
 {
   "clients": [
     {
-      "name": "Juan",
+      "name": "Eric Separovic",
       "company": "Accesa",
-      "email": "juan@accesa.com",
-      "phone": "102013313",
-      "note": "d",
+      "email": "ericseparovic07@gmail.com",
+      "phone": "092094208",
+      "note": "Hola soy Eric",
       "id": 1
-    },
-    {
-      "name": "Paula",
-      "company": "Casmu",
-      "email": "paula@casmu.com",
-      "phone": "09999999",
-      "note": "Hola",
-      "id": 2
     }
   ]
 }
